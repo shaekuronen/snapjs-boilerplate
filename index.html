@@ -1,0 +1,127 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="bower_components/snapjs/snap.css">
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- desktop header -->
+            <header>
+
+                <h1>Brand</h1>
+
+                <!-- main nav + mobile nav left drawer -->
+                <ul class="snap-drawer snap-drawer-left">
+                    <li><a href="/page1">Page 1</a></li>
+                    <li><a href="/page2">Page 2</a></li>
+                    <li><a href="/page3">Page 3</a></li>
+                    <li><a href="/page4">Page 4</a></li>
+                    <li><a href="/page5">Page 5</a></li>
+                </ul>
+                <!-- end main nav + mobile nav left drawer -->
+
+            </header>
+            <!-- end desktop header -->
+
+            <!-- secondary nav + mobile nav right drawer -->
+            <div class="snap-drawer snap-drawer-right">
+                <ul>
+                    <li><a href="/link1">Link 1</a></li>
+                    <li><a href="/link2">Link 2</a></li>
+                    <li><a href="/link3">Link 3</a></li>
+                    <li><a href="/link4">Link 4</a></li>
+                    <li><a href="/link5">Link 5</a></li>
+                </ul>
+            </div>
+            <!-- end secondary nav + mobile nav right drawer -->
+
+            <!-- content -->
+            <div id="content" class="snap-content">
+
+                <!-- mobile header -->
+                <div class="mobile-header">
+
+                    <div id="snap-toggle-trigger-left" class="snap-toggle-trigger snap-toggle-trigger-left">Toggle Left</div>
+
+                    <h1 class="mobile-header-brand">Brand</h1>
+
+                    <div id="snap-toggle-trigger-right" class="snap-toggle-trigger snap-toggle-trigger-right">Toggle Right</div>
+
+                </div>
+                <!-- end mobile header -->
+
+                <!-- copy -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, adipisci velit distinctio consequatur minus accusamus obcaecati consectetur! Quia, saepe, ullam voluptas repellat illum voluptatibus quam dicta ad molestias quo veniam.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, quisquam, ullam, doloremque, ducimus illo accusantium est laborum aspernatur consequuntur voluptates non perferendis repellat cumque obcaecati nulla id corporis atque maiores!</p>
+                <!-- end copy -->
+
+            </div>
+            <!-- end content -->
+
+        </div>
+
+        <div class="snap-drawers">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+        <script src="bower_components/resizeend/resizeend.js"></script>
+        <script src="bower_components/matchmedia/matchMedia.js"></script>
+        <script src="bower_components/matchmedia/matchMedia.addListener.js"></script>
+        <script src="bower_components/snapjs/snap.js"></script>
+        <script>
+
+            var snapper = new Snap({
+              element: document.getElementById('content')
+            });
+
+            // open or close the left drawer when the toggle trigger is clicked
+            $('#snap-toggle-trigger-left').on('click', function() {
+
+                if( snapper.state().state=="left" ){
+                    snapper.close();
+                } else {
+                    snapper.open('left');
+                }
+
+            });
+
+            // open or close the right drawer when the toggle trigger is clicked
+            $('#snap-toggle-trigger-right').on('click', function() {
+
+                if( snapper.state().state=="right" ){
+                    snapper.close();
+                } else {
+                    snapper.open('right');
+                }
+
+            });
+
+            // on resizeend event, close any open drawers if the resolution is greater than 810px
+            window.addEventListener('resize:end', function(event) {
+
+                // if viewport is larger than 810px
+                if (matchMedia('only screen and (min-width: 810px)').matches) {
+
+                    // close open drawers
+                    snapper.close();
+
+                }
+
+            });
+
+        </script>
+
+    </body>
+</html>

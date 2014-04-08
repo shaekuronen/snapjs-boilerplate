@@ -1,0 +1,23 @@
+{
+  "name": "resizeend",
+  "version": "1.2.1",
+  "main": "resizeend.js",
+  "author": "Dominik Porada",
+  "license": "MIT",
+  "homepage": "https://github.com/porada/resizeend",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/porada/resizeend.git"
+  },
+  "dependencies": {},
+  "_release": "1.2.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.2.1",
+    "commit": "33c304292b2565fdaad60fc81252867e9fab7c03"
+  },
+  "_source": "git://github.com/porada/resizeend.git",
+  "_target": "~1.2.1",
+  "_originalSource": "resizeend",
+  "_direct": true
+}
